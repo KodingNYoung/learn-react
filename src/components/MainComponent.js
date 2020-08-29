@@ -12,17 +12,23 @@ class Main extends  Component{
         dishes: dishes,
         selectedDish: null
         }
+
+        // console.log("constructing");
     }
 
     dishSelect = (dishID) => {
-        console.log(dishID)
+        // console.log(dishID)
         this.setState({
             selectedDish: dishID,
         })
     }
 
+    // componentDidMount () {
+    //     console.log("component has actually mounted")
+    // }
 
     render () {
+        // console.log("mounting component")
     return (
         <div>
         <Navbar dark color="primary">

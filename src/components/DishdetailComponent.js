@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
 
-class Dishdetail extends Component {
-
+const Dishdetail = ({dish}) => {
+    
     // the dish, with the title and description below the image
-    renderDish = (dish) => {
+    const renderDish = (dish) => {
         return (
             <Card>
-                <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name}/>
+                <CardImg width="100%" src={dish.image} alt={dish.name}/>
                 
                 <CardBody>
                     <CardTitle>{dish.name}</CardTitle>
@@ -18,7 +18,7 @@ class Dishdetail extends Component {
     } 
 
     // the comment by the side of the extra details
-    renderComments = (dish) => {
+    const renderComments = (dish) => {
         const {comments} = dish;
 
         return comments.map((comment) => {
@@ -34,27 +34,21 @@ class Dishdetail extends Component {
         })
     }
 
-    render () {
-        const {dish} = this.props;
-
-        if (dish !== undefined){
-            return (
-                <div className="container row">
-                    <div className="col-12 col-md-5 m-1">
-                        {this.renderDish(dish)}
-                    </div>
-                    <div className="col-12 col-md-5 m-1">
-                        <h4>Comments</h4>
-                        <ul className="list-unstyled">
-                            {this.renderComments(dish)}
-                        </ul>
-                    </div>
+    return (
+        dish !== undefined ? 
+            <div className="container row">
+                <div className="col-12 col-md-5 m-1">
+                    {renderDish(dish)}
                 </div>
-            )
-        } else {
-            return <div></div>; 
-        }   
-    }
+                <div className="col-12 col-md-5 m-1">
+                    <h4>Comments</h4>
+                    <ul className="list-unstyled">
+                        {renderComments(dish)}
+                    </ul>
+                </div>
+            </div>
+            :<div></div>
+    )  
 }
 
 export default Dishdetail;
