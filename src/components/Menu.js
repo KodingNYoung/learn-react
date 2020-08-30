@@ -27,8 +27,10 @@ const Menu = ({dishes, onClick}) => {
 
     return(
         <div className="Menu">
-            <div className="container row">
+            <div className="container">
+                <div className="row">
                     {menu}
+                </div>
             </div>
         </div>
     );

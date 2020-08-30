@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Navbar, NavbarBrand} from 'reactstrap';
+import Header from './Header';
 import Menu from './Menu'
 import Dishdetail from './DishdetailComponent';
+import Footer from './Footer';
 import {dishes} from '../Db'
 
 class Main extends  Component{
@@ -13,35 +14,24 @@ class Main extends  Component{
         selectedDish: null
         }
 
-        // console.log("constructing");
     }
 
     dishSelect = (dishID) => {
-        // console.log(dishID)
         this.setState({
             selectedDish: dishID,
         })
     }
 
-    // componentDidMount () {
-    //     console.log("component has actually mounted")
-    // }
 
     render () {
-        // console.log("mounting component")
     return (
         <div>
-        <Navbar dark color="primary">
-            <div className="container">
-            <NavbarBrand href="/">
-                <span>Food Menu  App</span>
-            </NavbarBrand>
-            </div>
-        </Navbar>
-        <Menu dishes ={this.state.dishes} onClick = {(dishID) => this.dishSelect(dishID)}/>
-        <Dishdetail 
-            dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}
-            /> 
+            <Header />        
+            <Menu dishes ={this.state.dishes} onClick = {(dishID) => this.dishSelect(dishID)}/>
+            <Dishdetail 
+                dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}
+                /> 
+            <Footer />
         </div>
     );
     }
