@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Home from './Home';
+import About from './About';
 import Menu from './Menu'
 import Contact from './Contact'
 import Header from './Header';
@@ -25,7 +26,6 @@ class Main extends Component{
   }
 
   render () {
-    // console.log(dishes, leaders, promotions)
       const MenuPage = ()=> <Menu dishes ={this.state.dishes}/>;
       
       const HomePage = () =>{
@@ -51,12 +51,18 @@ class Main extends Component{
           />
         )
       }
+      const AboutPage = () => {
+        return (
+          <About leaders={this.state.leaders}/>
+        )
+      }
       return (
           <div>
               <Header />      
               <Switch>
                   <Route exact path="/" component={HomePage} />
                   <Route path="/home" component={HomePage}/>
+                  <Route path="/about" component={AboutPage} />
                   <Route exact path="/menu" 
                   component={MenuPage}/>
                   <Route path="/menu/:name" component={DishPage} />
@@ -65,11 +71,6 @@ class Main extends Component{
 
                   <Redirect to="/404"/>
               </Switch>
-
-
-              {/* <Dishdetail 
-                  dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}
-                  />  */}
               <Footer />
           </div>
       );
