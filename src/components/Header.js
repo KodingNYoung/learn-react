@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler,Collapse, NavItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-// import {logo} from "assets/images/logo.png"
 
 
 class Header extends Component {  
@@ -10,7 +9,7 @@ class Header extends Component {
 
     this.state = {
       isNavOpen: false,
-      isModalOpen: true
+      isModalOpen: false
     }
   }
 
